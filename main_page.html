@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+  <head>
+    <title>WhatTheHelp.org</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+
+    <meta property="og:title" content="WhatTheHelp.org">
+    <meta property="og:description" content="Helping support others with depression">
+    <meta property="og:image" content="http://whatthehelp.org/Icon128x128.png">
+    <meta property="og:url" content="http://whatthehelp.org">
+
+    <style>
+      .whole-page-continer{
+        max-width: 98%;
+      }
+      .top-jumbotron{
+        //text-align: center;
+        color: black;
+        background-color: lightblue;
+        //background: linear-gradient(to bottom right, #c2f7c2, lightgreen);
+        background: linear-gradient(to bottom right, #d1f4ff, lightblue);
+
+        padding-top: 24px;
+        padding-bottom: 24px;
+        border-bottom: 4px solid #eeeeee;
+        margin-bottom: 16px;
+
+      }
+      .help-text{
+          color: red;
+      }
+
+      .question-plus-answer{
+        margin-top:10px;
+        margin-bottom:10px;
+      }
+
+    </style>
+
+    <script>
+      var info = [
+        ["Test Question A", "Test Answer A"],
+        ["Test Question B", "Test Answer B"]
+      ];
+    </script>
+  </head>
+  
+  <body onload="initialize_page();">
+    <div class="container whole-page-container">
+      <div class="jumbotron top-jumbotron" id="jumbotron" >
+        <h4>What The <span class="help-text">Help</span></h4>
+        Coming soon!
+      </div>
+
+      <div id="qa-container" class="qa-container" style="padding-left: 2px;">
+
+      </div>
+
+      <div hidden id="hidden-example">
+        <div class="question-plus-answer">
+          <div class="question">
+            Example question text?
+          </div>
+          <div class="answer">
+            Example answer text.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+  <script>
+    function initialize_page(e){
+      var example = $('#hidden-example .question-plus-answer');
+      var list = $('#qa-container');
+
+      for (var i = 0; i < info.length; i++){
+        var curQA = info[i];
+        var curQ = "<b>"+curQA[0]+"</b><br/>";
+        var curA = curQA[1];
+
+        var exQ = example.find(".question");
+        var exA = example.find(".answer");
+        exQ.html(curQ);
+        exA.html(curA);
+        var clone = example.clone();
+        list.append(clone);
+
+
+
+      }
+    }
+  </script>
+</html>
