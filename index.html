@@ -117,6 +117,19 @@
 ["Is this a registered 501c3 non-profit organization? Can I donate to What The Help and then mention them when I file my taxes to get some of that money back?",
     "Not at this time. But I will look into it. Hopefully it will be soon. I will try to fill out the necessary paperwork."],
 
+["Sometimes people reply to the comments you leave on their posts. What are some of your favorite responses?",
+  "<em>"+
+  "\“Thanks so much, I don't get much support else where\”<br>" +
+  "\"Thank for the suggestions and for the encouragement, it really is appreciated\"<br>"+
+  "\"You just motivated me to go take a shower and dress up 😊 thanks so much for your advice\"<br>"+
+  "\"thank you. Never saw this point of view, surprisingly\"<br>"+
+  "\"You just restored my faith in humanity\"<br>"+
+  "\"Than you for the kind words. They do help, more than you know\"<br>"+
+  "\"Your words were really touching. Its a journey-getting better, but it's one I want to be on\"<br>"+
+  "\"Thank you, your kind words made me smile.\""+
+  "</em>"
+],
+
 ["I’ve met you before and you didn’t help me at all. You might even have been rude or a jerk while trying to help me.", "There have been times when I, while trying to be helpful to someone, probably just made them feel worse. But I can look back on those and learn from them. I wasn't born knowing how to be good at supporting another person. I wasn't even a fast learner. I probably even still have room to improve. I will do the best I can to do a great job anytime I try to be supportive of someone. I've definitely gotten better at learning what to say and what not to say. Everyone has different ways of thinking about things, so something that might really help one person might just sound frustrating to another person."],
 
 ["Why name it “What The Help”? Isn’t that offensive or vulgar?", "It's a pun. I love puns! It's funny. It's memorable. It's cool. The domain name was available. To me, saying \"What the help\" is like saying, \"I don't care if it takes courage to try to help people, I'm going to try anyway."],
@@ -134,8 +147,6 @@
 ["What challenges do depressed people face? What are some common themes that people write about?"],
 
 ["What is your own experience with depression?"],
-
-["Can I see your profile on Reddit? Can I read all your public comments?"],
 
 ["What are some of your best replies as comments you’ve given people?"],
 
@@ -198,7 +209,7 @@
 
       for (var i = 0; i < info.length; i++){
         var curQA = info[i];
-        var curQ = "<b><em>&bull; "+curQA[0]+"</em></b><br/>";
+        var curQ = "<b>&bull; "+curQA[0]+"</b><br/>";
         var curA = curQA[1] || "";
 
         var exQ = example.find(".question");
