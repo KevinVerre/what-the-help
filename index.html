@@ -104,16 +104,17 @@
 
 ["Sometimes people reply to the comments you leave on their posts. What are some responses you've gotten?",
   "<em>"+
-  "\“Thanks so much, I don't get much support else where\”<br>" +
-  "\"Thank for the suggestions and for the encouragement, it really is appreciated\"<br>"+
-  "\"You just motivated me to go take a shower and dress up 😊 thanks so much for your advice\"<br>"+
-  "\"thank you. Never saw this point of view, surprisingly\"<br>"+
-  "\"Than you for the kind words. They do help, more than you know\"<br>"+
-  "\"Thank you, your kind words made me smile.\""+
-  "\"Your words were really touching. Its a journey-getting better, but it's one I want to be on\"<br>"+
-  "\"Thank you for all of the help/time. You didn't need to write all of these essays for me, but they've all made me put a lot of thought into my future, which has given me hope for what's to come. For that, I can't thank you enough.\"<br>"+
-  "\"You just restored my faith in humanity\"<br>"+
-  "</em>"
+  "- \“Thanks so much, I don't get much support else where\”<br>" +
+  "- \"Thank for the suggestions and for the encouragement, it really is appreciated\"<br>"+
+  "- \"You just motivated me to go take a shower and dress up 😊 thanks so much for your advice\"<br>"+
+  "- \"thank you. Never saw this point of view, surprisingly\"<br>"+
+  "- \"Than you for the kind words. They do help, more than you know\"<br>"+
+  "- \"Thank you, your kind words made me smile.\"<br>"+
+  "- \"Your words were really touching. Its a journey-getting better, but it's one I want to be on\"<br>"+
+  "- \"Thank you for all of the help/time. You didn't need to write all of these essays for me, but they've all made me put a lot of thought into my future, which has given me hope for what's to come. For that, I can't thank you enough.\"<br>"+
+  "- \"You just restored my faith in humanity\"<br>"+
+  "</em>",
+  "responses"
 ],
 
 ["So what’s on the agenda for What The Help in the short term?",
@@ -171,6 +172,23 @@
 ["What is the Suicide Prevention Hotline phone number?", "If you're having thoughts related to suicide, please call a suicide prevention hotline. In the USA, there is a National Suicide Prevention Lifeline that is available 24/7. The phone number is 1-800-273-8255."]
 
       ];
+
+      function scrollToAnchor(){
+        // Jump to hash anchor
+        // We do this since the anchor isn't actually on the page until javascript printed out the list of Questions
+        var hash_target = window.location.hash;
+        if (hash_target) {
+          var targetTag = $(hash_target);
+          if (targetTag) {
+            $('body, html').scrollTop(0);
+            var heightToScrollTo = targetTag.offset().top;
+            console.log(""+heightToScrollTo)
+            $('html,body').animate({scrollTop: heightToScrollTo}, 50);
+          }
+
+        }
+      }
+
     </script>
   </head>
 
@@ -193,6 +211,7 @@
 
       <div hidden id="hidden-example">
         <div class="question-plus-answer">
+          <a class='anchor-to-question'></a>
           <div class="question">
             Example question text?
           </div>
@@ -218,15 +237,23 @@
         var curQA = info[i];
         var curQ = "<b>&bull; "+curQA[0]+"</b><br/>";
         var curA = curQA[1] || "";
+        var curAnchorID = '';
+        if (curQA[2]){
+          curAnchorID = curQA[2];
+        }
 
         var exQ = example.find(".question");
         var exA = example.find(".answer");
+        var exAnchor = example.find(".anchor-to-question");
         exQ.html(curQ);
         exA.html(curA);
+        exAnchor.attr('id', curAnchorID);
         var clone = example.clone();
         list.append(clone);
 
       }
+
+      scrollToAnchor();
     }
   </script>
 </html>
